@@ -1,3 +1,10 @@
+Wiring
+======
+
+Use schema in Adafruit: https://learn.adafruit.com/dht-humidity-sensing-on-raspberry-pi-with-gdocs-logging/wiring
+
+Tested with a DHT22 and a Raspberry Pi 3
+
 Installation:
 =============
 
