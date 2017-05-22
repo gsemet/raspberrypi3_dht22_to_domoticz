@@ -52,7 +52,7 @@ def update_domoticz(temperature, humidity):
 def main():
     logging.basicConfig(level=logging.DEBUG,
                         format='%(asctime)-15s %(levelname)-7s - %(message)s',)
-    humi, temp = read_dht22(14)
+    humi, temp = read_dht22(PIN)
     update_domoticz(temp, humi)
 
 
