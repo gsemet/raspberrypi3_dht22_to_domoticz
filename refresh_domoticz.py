@@ -25,7 +25,7 @@ def read_dht22(pin):
     # Adjust pin (BCM) for your needs !
     try:
         logging.debug("Reading DHT%d on pin %d", SENSOR, pin)
-        humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
+        humidity, temperature = Adafruit_DHT.read_retry(SENSOR, pin)
         return humidity, temperature
     except RuntimeError:
         logging.exception("Have you enabled 'device-tree' mode in `raspi-config` ?")
@@ -38,6 +38,7 @@ def update_domoticz(temperature, humidity):
                '&nvalue=0&svalue={temp}:{humi};2'
                .format(ip=DOMOTICZ_IP,
                        port=DOMOTICZ_PORT,
+                       root=DOMOTICZ_ROOT,
                        idx=DOMOTICZ_IDX,
                        temp=temperature,
                        humi=humidity))

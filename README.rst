@@ -11,7 +11,7 @@ Installation:
 Reference: https://easydomoticz.com/dht-11-22-raspberry-ca-marche-enfin/
 
 - clone this project to your Raspberry Pi
-- execute `./build.sh`
+- execute `./install.sh`
 - edit the python script according to your configuration
 - add this line to your crontab (use `crontab -e`):
 
