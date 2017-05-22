@@ -1,2 +1,2 @@
--e git+https://github.com/jdupl/dhtxx-python3.git#egg=DHTxx
-pyyaml
+-e git+https://github.com/adafruit/Adafruit_Python_DHT.git#egg=Adafruit_Python_DHT
+requests

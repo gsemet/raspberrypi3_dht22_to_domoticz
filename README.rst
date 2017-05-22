@@ -8,6 +8,8 @@ Tested with a DHT22 and a Raspberry Pi 3
 Installation:
 =============
 
+Reference: https://easydomoticz.com/dht-11-22-raspberry-ca-marche-enfin/
+
 - clone this project to your Raspberry Pi
 - execute `./build.sh`
 - edit the python script according to your configuration
