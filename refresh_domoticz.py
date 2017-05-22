@@ -19,7 +19,7 @@ PASSWORD = ''
 DOMOTICZ_IDX = 221
 
 SENSOR = 22
-PIN = 18
+PIN = 13
 
 def read_dht22(pin):
     # Adjust pin (BCM) for your needs !
