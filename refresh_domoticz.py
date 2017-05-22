@@ -12,7 +12,7 @@ import requests
 
 
 DOMOTICZ_IP = '192.168.0.37'
-DOMOTICZ_PORT = '8080'
+DOMOTICZ_PORT = '80'
 DOMOTICZ_ROOT = '/domoticz'
 USER = ''
 PASSWORD = ''
@@ -26,6 +26,7 @@ def read_dht22(pin):
     try:
         logging.debug("Reading DHT%d on pin %d", SENSOR, pin)
         humidity, temperature = Adafruit_DHT.read_retry(SENSOR, pin)
+        logging.debug("Temperature: %d, humidity: %d", temperature, humidity)
         return humidity, temperature
     except RuntimeError:
         logging.exception("Have you enabled 'device-tree' mode in `raspi-config` ?")
