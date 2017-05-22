@@ -6,6 +6,7 @@ from __future__ import print_function
 from __future__ import unicode_literals
 
 import logging
+import os
 
 import Adafruit_DHT
 import requests
@@ -15,6 +16,7 @@ DOMOTICZ_IP = '192.168.0.37'
 DOMOTICZ_PORT = '80'
 DOMOTICZ_ROOT = '/domoticz'
 USER = ''
+USE_DOT_DOMOTPWD = true
 PASSWORD = ''
 DOMOTICZ_IDX = 221
 
@@ -44,7 +46,11 @@ def update_domoticz(temperature, humidity):
                        temp=temperature,
                        humi=humidity))
     logging.debug("Request: %r", requete)
-    res = requests.get(requete, auth=requests.auth.HTTPBasicAuth(USER, PASSWORD))
+    user_pwd = PASSWORD
+    if USE_DOT_DOMOTPWD:
+        with open(os.path.expanduser("~/.domotpwd")) as f:
+            user_pwd = f.readline().strip()
+    res = requests.get(requete, auth=requests.auth.HTTPBasicAuth(USER, user_pwd))
     if res.status_code != 200:
         logging.error("Erreur API Domoticz: %s", res.status_code)
 

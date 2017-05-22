@@ -16,3 +16,5 @@ Reference: https://easydomoticz.com/dht-11-22-raspberry-ca-marche-enfin/
 - add this line to your crontab (use `crontab -e`):
 
     */5 * * * * /path/to/run.sh
+
+Note: HTTP password can be put in ~/.domotpwd file instead of hardcoded in the script
