@@ -16,6 +16,5 @@ pip install -r requirements.txt
 
 echo
 echo "Installation complete"
-echo "Edit `config.yaml` accordingly to your environment"
 echo "Activate environment with $PWD/env/bin/activate"
 echo "Or run directly ./run.sh"
