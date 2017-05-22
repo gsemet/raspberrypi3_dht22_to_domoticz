@@ -55,6 +55,8 @@ def update_domoticz(temperature, humidity):
     res = requests.get(requete, auth=requests.auth.HTTPBasicAuth(user, password))
     if res.status_code != 200:
         logging.error("Erreur API Domoticz: %s", res.status_code)
+    else:
+        logging.debug("Success")
 
 
 def main():
