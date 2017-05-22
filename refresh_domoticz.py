@@ -38,7 +38,7 @@ def read_dht22(pin):
 
 def update_domoticz(temperature, humidity):
     requete = ('http://{ip}:{port}{root}/json.htm?type=command&param=udevice&idx={idx}'
-               '&nvalue=0&svalue={temp};{humi};2'
+               '&nvalue=0&svalue={temp:.2f};{humi:.2f};2'
                .format(ip=DOMOTICZ_IP,
                        port=DOMOTICZ_PORT,
                        root=DOMOTICZ_ROOT,
