@@ -17,4 +17,8 @@ Reference: https://easydomoticz.com/dht-11-22-raspberry-ca-marche-enfin/
 
     */5 * * * * /path/to/run.sh
 
-Note: HTTP password can be put in ~/.domotpwd file instead of hardcoded in the script
+Note: HTTP password can be put in ~/.domotpwd file instead of hardcoded in the script, with
+the following format:
+
+    username
+    password

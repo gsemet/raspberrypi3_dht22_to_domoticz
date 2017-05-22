@@ -15,10 +15,10 @@ import requests
 DOMOTICZ_IP = '192.168.0.37'
 DOMOTICZ_PORT = '80'
 DOMOTICZ_ROOT = '/domoticz'
-USER = ''
+DOMOTICZ_USER = ''
 USE_DOT_DOMOTPWD = True
-PASSWORD = ''
-DOMOTICZ_IDX = 221
+DOMOTICZ_PASSWORD = ''
+DOMOTICZ_VIRTUAL_IDX = 221
 
 SENSOR = Adafruit_DHT.DHT22
 PIN = 13
@@ -42,15 +42,17 @@ def update_domoticz(temperature, humidity):
                .format(ip=DOMOTICZ_IP,
                        port=DOMOTICZ_PORT,
                        root=DOMOTICZ_ROOT,
-                       idx=DOMOTICZ_IDX,
+                       idx=DOMOTICZ_VIRTUAL_IDX,
                        temp=temperature,
                        humi=humidity))
     logging.debug("Request: %r", requete)
-    user_pwd = PASSWORD
+    user = DOMOTICZ_USER
+    password = DOMOTICZ_PASSWORD
     if USE_DOT_DOMOTPWD:
         with open(os.path.expanduser("~/.domotpwd")) as f:
-            user_pwd = f.readline().strip()
-    res = requests.get(requete, auth=requests.auth.HTTPBasicAuth(USER, user_pwd))
+            user = f.readline().strip()
+            password = f.readline().strip()
+    res = requests.get(requete, auth=requests.auth.HTTPBasicAuth(user, password))
     if res.status_code != 200:
         logging.error("Erreur API Domoticz: %s", res.status_code)
 
