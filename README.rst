@@ -1,3 +1,14 @@
+=========================
+DHT22 refresh to domoticz
+=========================
+
+A little script that read a DHT22 temperature and humidity sensor connected to a GPIO
+of a Raspberry Pi 3 and send the value to a virual sensor in Domoticz (local or remote).
+
+Note: This will set up a virtualenv for Python script to be isolated from the rest of
+your system. This is a good habit to get, avoid setting up libraries all over the place, let
+`pip install` mess the system's Python install. 
+
 Wiring
 ======
 
