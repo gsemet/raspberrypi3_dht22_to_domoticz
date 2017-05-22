@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 from __future__ import absolute_import
 from __future__ import division
@@ -18,7 +18,7 @@ USER = ''
 PASSWORD = ''
 DOMOTICZ_IDX = 221
 
-SENSOR = 22
+SENSOR = Adafruit_DHT.DHT22
 PIN = 13
 
 def read_dht22(pin):
@@ -26,7 +26,7 @@ def read_dht22(pin):
     try:
         logging.debug("Reading DHT%d on pin %d", SENSOR, pin)
         humidity, temperature = Adafruit_DHT.read_retry(SENSOR, pin)
-        logging.debug("Temperature: %d, humidity: %d", temperature, humidity)
+        logging.debug("Temperature: %s, humidity: %s", temperature, humidity)
         return humidity, temperature
     except RuntimeError:
         logging.exception("Have you enabled 'device-tree' mode in `raspi-config` ?")
